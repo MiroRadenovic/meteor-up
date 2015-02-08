@@ -1,12 +1,10 @@
-> Meteor 0.9 support comes with the latest release. 
-> * Update mup with `npm i -g mup`
-> * Then apply `mup setup` once again
-
 # Meteor Up
 
 #### Production Quality Meteor Deployments
 
 Meteor Up (mup for short) is a command line tool that allows you to deploy any [Meteor](http://meteor.com) app to your own server. It supports only Debian/Ubuntu flavours and Open Solaris at the moments. (PRs are welcome)
+
+> Screencast: [How to deploy a Meteor app with Meteor Up (by Sacha Grief)](https://www.youtube.com/watch?v=WLGdXtZMmiI)
 
 **Table of Contents**
 
@@ -28,16 +26,18 @@ Meteor Up (mup for short) is a command line tool that allows you to deploy any [
 - [Updating](#updating)
 - [Troubleshooting](#troubleshooting)
 - [Binary Npm Module Support](#binary-npm-module-support)
+- [Additional Resources](#additional-resources)
 
 ### Features
 
 * Single command server setup
 * Single command deployment
+* Multi server deployment
 * Environmental Variables management
 * Support for [`settings.json`](http://docs.meteor.com/#meteor_settings)
 * Password or Private Key(pem) based server authentication
 * Access, logs from the terminal (supports log tailing)
-* Support for multiple meteor deployments
+* Support for multiple meteor deployments (experimental)
 
 ### Server Configuration
 
@@ -91,8 +91,8 @@ This will create two files in your Meteor Up project directory:
   // WARNING: Node.js is required! Only skip if you already have Node.js installed on server.
   "setupNode": true,
 
-  // WARNING: nodeVersion defaults to 0.10.31 if omitted. Do not use v, just the version number.
-  "nodeVersion": "0.10.31",
+  // WARNING: nodeVersion defaults to 0.10.33 if omitted. Do not use v, just the version number.
+  "nodeVersion": "0.10.33",
 
   // Install PhantomJS on the server
   "setupPhantom": true,
@@ -280,3 +280,9 @@ Fortunately, Meteor Up **will take care** of that job for you and it will detect
 > * Meteor 0.9 adds a similar feature where it allows package developers to publish their packages for different architecures, if their packages has binary npm modules.
 > * As a side effect of that, if you are using a binary npm module inside your app via `meteorhacks:npm` package, you won't be able to deploy into `*.meteor.com`.
 > * But, you'll be able to deploy with Meteor Up since we are re-building binary modules on the server.
+
+### Additional Resources
+
+* [Using Meteor Up with Nitrous.io](https://github.com/arunoda/meteor-up/wiki/Using-Meteor-Up-with-Nitrous.io)
+* [Change Ownership of Additional Directories](https://github.com/arunoda/meteor-up/wiki/Change-Ownership-of-Additional-Directories)
+* [Using Meteor Up with NginX vhosts](https://github.com/arunoda/meteor-up/wiki/Using-Meteor-Up-with-NginX-vhosts)
